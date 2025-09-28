@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import "./globals.css";
+import { Providers } from "./_providers/providers";
 
 export const metadata: Metadata = {
   title: "نوبینو: دستیار هوشمند شما برای رزرو نوبت",
@@ -14,7 +15,9 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="fa" dir="rtl">
-      <body>{children}</body>
+      <body>
+        <Providers>{children}</Providers>
+      </body>
     </html>
   );
 }
