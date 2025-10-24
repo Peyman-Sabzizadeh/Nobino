@@ -1,14 +1,19 @@
 import Link from "next/link";
 import Image from "next/image";
 
-export default function Logo() {
+type LogoProps = {
+  size?: string;
+  type: "logo-name" | "logo";
+};
+
+export default function Logo({ size, type }: LogoProps) {
   return (
-    <Link href="/" className="relative inline-block h-15 w-30">
+    <Link href="/" className="relative inline-block h-14 w-30">
       <Image
         priority
         fill
-        sizes="400px"
-        src="/logo/logo.png"
+        sizes={size || "400px"}
+        src={type === "logo-name" ? "/logo/logo-name.png" : "/logo/logo.png"}
         alt="لوگوی نوبینو"
         className="h-full w-auto object-contain"
       />

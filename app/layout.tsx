@@ -22,7 +22,9 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="fa" dir="rtl" suppressHydrationWarning>
-      <body className={`${vazirmatn.className} mx-auto min-h-screen max-w-7xl`}>
+      <body
+        className={`${vazirmatn.className} mx-auto min-h-screen max-w-7xl px-2`}
+      >
         <Providers>{children}</Providers>
       </body>
     </html>
