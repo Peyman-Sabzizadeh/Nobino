@@ -1,4 +1,6 @@
 import { useState } from "react";
+import NextLink from "next/link";
+
 import {
   Navbar,
   NavbarBrand,
@@ -6,8 +8,11 @@ import {
   NavbarMenuToggle,
   NavbarMenu,
   NavbarMenuItem,
+  Accordion,
+  AccordionItem,
   Link,
 } from "@heroui/react";
+
 import { ThemeSwitcher } from "@/app/_components/ThemeSwitcher";
 import Logo from "@/app/_components/Logo";
 import Search from "./Search";
@@ -15,8 +20,6 @@ import ProfileMenu from "./ProfileMenu";
 
 export default function MobileHeader() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-
-  const menuItems = ["تخصص ها", "مراکز درمانی", "مشاوره آنلاین"];
 
   return (
     <Navbar
@@ -41,24 +44,33 @@ export default function MobileHeader() {
         </div>
       </NavbarContent>
       <NavbarMenu className="mt-4.5 mr-2 w-fit rounded-lg bg-gray-200 dark:bg-gray-600">
-        {menuItems.map((item, index) => (
-          <NavbarMenuItem key={`${item}-${index}`}>
-            <Link
-              className="w-full"
-              color={
-                index === 2
-                  ? "primary"
-                  : index === menuItems.length - 1
-                    ? "danger"
-                    : "foreground"
-              }
-              href="#"
-              size="sm"
-            >
-              {item}
-            </Link>
-          </NavbarMenuItem>
-        ))}
+        <NavbarMenuItem>
+          <Accordion variant="light">
+            <AccordionItem key="1" title="تخصص ها">
+              <div className="flex flex-col gap-2 ps-3">
+                <Link as={NextLink} href="/">
+                  قلب
+                </Link>
+                <Link as={NextLink} href="/">
+                  مغز و اعصاب
+                </Link>
+              </div>
+            </AccordionItem>
+            <AccordionItem key="2" title="مراکز">
+              <div className="flex flex-col gap-2 ps-3">
+                <Link as={NextLink} href="/">
+                  بیمارستان
+                </Link>
+                <Link as={NextLink} href="/">
+                  مطب
+                </Link>
+                <Link as={NextLink} href="/">
+                  کلینیک
+                </Link>
+              </div>
+            </AccordionItem>
+          </Accordion>
+        </NavbarMenuItem>
       </NavbarMenu>
     </Navbar>
   );
