@@ -15,3 +15,6 @@ body,
     color 0.2s ease,
     border-color 0.2s ease;
 }
+.container {
+  @apply mx-auto max-w-7xl px-2;
+}

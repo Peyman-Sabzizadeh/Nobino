@@ -1,9 +1,10 @@
 "use client";
-import { useState, useEffect } from "react";
 
-export function useMediaQuery(query: string) {
+import { useEffect, useState } from "react";
+
+export default function useIsMobile() {
   const [matches, setMatches] = useState<boolean>(false);
-
+  const query = "(max-width: 768px)";
   useEffect(() => {
     if (typeof window === "undefined") return;
     const mediaQuery = window.matchMedia(query);
