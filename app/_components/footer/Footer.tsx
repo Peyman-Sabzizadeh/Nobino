@@ -3,6 +3,7 @@
 import { Divider } from "@heroui/react";
 import { HeartHandshake } from "lucide-react";
 import Link from "next/link";
+import SocialMediaLinks from "./components/SocialMediaLinks";
 
 export default function Footer() {
   return (
@@ -35,6 +36,11 @@ export default function Footer() {
           <Link href="/">شکایات</Link>
           <Link href="/">پشتیبانی</Link>
         </div>
+      </div>
+      <Divider />
+      <div className="flex flex-wrap items-center justify-around">
+        <h3>ارتباط با ما :</h3>
+        <SocialMediaLinks />
       </div>
       <Divider />
     </div>
