@@ -11,9 +11,9 @@ export default function SocialMediaLinks() {
             href={link.url}
             target="_blank"
             aria-label={link.name}
-            className={`"md:text-default-300 transition-all" flex items-center justify-center rounded-lg bg-gray-500 p-1.5 text-white ${link.hoverColor}`}
+            className={`"md:text-default-300 transition-all" flex items-center justify-center rounded-lg bg-gray-500 dark:bg-transparent p-1 text-white md:p-1.5 ${link.hoverColor}`}
           >
-            <span className="inline-block size-8">{link.icon}</span>
+            <span className="inline-block size-6 md:size-8">{link.icon}</span>
           </Link>
         </Tooltip>
       ))}
