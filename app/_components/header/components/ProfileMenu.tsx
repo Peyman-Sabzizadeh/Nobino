@@ -1,4 +1,5 @@
 "use client";
+
 import {
   Button,
   Dropdown,
@@ -6,14 +7,16 @@ import {
   DropdownMenu,
   DropdownTrigger,
 } from "@heroui/react";
+
+import { ButtonType } from "@/app/_types/button";
 import { User } from "lucide-react";
 
-export default function ProfileMenu() {
+export default function ProfileMenu({ size = "md", iconSize = "20px" }: ButtonType) {
   return (
     <Dropdown>
       <DropdownTrigger>
-        <Button isIconOnly variant="shadow">
-          <User size="21px" />
+        <Button isIconOnly variant="shadow" size={size}>
+          <User size={iconSize} />
         </Button>
       </DropdownTrigger>
       <DropdownMenu variant="faded">

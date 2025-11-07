@@ -9,10 +9,7 @@ import { CalendarCheck } from "lucide-react";
 export default function Hero() {
   const isMobile = useIsMobile();
   return (
-    <div
-      className="relative mt-2 w-full"
-      style={{ height: "calc(100vh - 80px)" }}
-    >
+    <div className="relative mt-2 w-full" style={{ height: "75vh" }}>
       <Image
         priority
         fill
@@ -21,7 +18,7 @@ export default function Hero() {
         className="rounded-lg object-cover object-top brightness-[0.25]"
       />
       <div
-        className={`${isMobile && "flex-col justify-center gap-8 p-4"} absolute inset-0 flex items-center justify-around text-amber-50`}
+        className={`${isMobile && "flex-col items-start justify-center gap-6 p-4"} absolute inset-0 flex items-center justify-around text-amber-50`}
       >
         <div>
           <h1
@@ -34,7 +31,7 @@ export default function Hero() {
             کنید.
           </p>
         </div>
-        <Button as={Link} href="/" color="primary" variant="shadow" size="lg">
+        <Button as={Link} href="/" color="primary" size="lg">
           <CalendarCheck size="20px" />
           رزرو نوبت
         </Button>

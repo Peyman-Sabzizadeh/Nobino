@@ -8,14 +8,14 @@ import FooterCredits from "./components/FooterCredits";
 
 export default function Footer() {
   return (
-    <footer className="mt-2 flex flex-col justify-between gap-6 rounded-sm bg-cyan-600 p-4 text-amber-50 dark:bg-gray-600">
+    <footer className="md:text-medium mt-2 flex flex-col justify-between gap-6 rounded-sm bg-cyan-600 p-4 text-sm text-amber-50 dark:bg-gray-600">
       <p className="flex gap-2">
         <HeartHandshake />
         هر قدمی که برمی‌داریم با هدف ساختن دنیایی مطمئن‌تر برای شماست. نوبینو
         یعنی اعتماد، آرامش و همراهی.
       </p>
       <Divider />
-      <div className="flex flex-col items-center justify-around gap-4 *:flex *:flex-col *:space-y-3 md:flex-row">
+      <div className="flex flex-wrap items-center justify-around gap-6 *:flex *:flex-col *:space-y-3 md:flex-row">
         <div>
           <p className="mb-4 text-xl font-bold">دسترسی سریع</p>
           <Link href="/">خانه</Link>
