@@ -15,7 +15,7 @@ type Menu = {
 
 export default function Menu({ trigger, items }: Menu) {
   return (
-    <Dropdown>
+    <Dropdown className="mt-3 min-w-36">
       <DropdownTrigger>
         <Button variant="shadow" className="flex gap-x-0.5">
           <ChevronDown size="18px" />

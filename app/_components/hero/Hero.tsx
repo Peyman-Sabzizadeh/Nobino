@@ -9,7 +9,7 @@ import { CalendarCheck } from "lucide-react";
 export default function Hero() {
   const isMobile = useIsMobile();
   return (
-    <div className="relative mt-2 w-full" style={{ height: "75vh" }}>
+    <div className="relative mt-2 w-full" style={{ height: "65vh" }}>
       <Image
         priority
         fill

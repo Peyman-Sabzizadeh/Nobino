@@ -11,9 +11,12 @@ import {
 import { ButtonType } from "@/app/_types/button";
 import { User } from "lucide-react";
 
-export default function ProfileMenu({ size = "md", iconSize = "20px" }: ButtonType) {
+export default function ProfileMenu({
+  size = "md",
+  iconSize = "20px",
+}: ButtonType) {
   return (
-    <Dropdown>
+    <Dropdown className="mt-3 min-w-36 font-light">
       <DropdownTrigger>
         <Button isIconOnly variant="shadow" size={size}>
           <User size={iconSize} />

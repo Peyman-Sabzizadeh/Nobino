@@ -26,12 +26,10 @@ export default function MobileHeader() {
       onMenuOpenChange={setIsMenuOpen}
       className="mt-2 rounded-lg bg-gray-200 dark:bg-gray-600"
     >
-      <NavbarContent>
+      <NavbarContent className="space-x-3">
         <NavbarMenuToggle
           aria-label={isMenuOpen ? "Close menu" : "Open menu"}
         />
-      </NavbarContent>
-      <NavbarContent justify="center">
         <NavbarBrand>
           <Logo type="logo-name" />
         </NavbarBrand>
@@ -43,7 +41,7 @@ export default function MobileHeader() {
           <ProfileMenu size="sm" iconSize="15px" />
         </div>
       </NavbarContent>
-      <NavbarMenu className="mt-4.5 mr-2 w-fit rounded-lg bg-gray-200 dark:bg-gray-600">
+      <NavbarMenu className="mt-3 rounded-lg">
         <NavbarMenuItem>
           <Accordion variant="light">
             <AccordionItem key="1" title="تخصص ها">
