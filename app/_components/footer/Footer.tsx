@@ -1,5 +1,3 @@
-"use client";
-
 import { Divider } from "@heroui/react";
 import { HeartHandshake } from "lucide-react";
 import Link from "next/link";
@@ -8,7 +6,7 @@ import FooterCredits from "./components/FooterCredits";
 
 export default function Footer() {
   return (
-    <footer className="md:text-medium mt-2 flex flex-col justify-between gap-6 rounded-sm bg-[#0384c6] py-5 px-10 text-sm text-amber-50 dark:bg-gray-600">
+    <footer className="md:text-medium mt-2 flex flex-col justify-between gap-6 rounded-sm bg-[#0384c6] px-10 py-5 text-sm text-amber-50 dark:bg-gray-600">
       <p className="flex gap-2">
         <HeartHandshake />
         هر قدمی که برمی‌داریم با هدف ساختن دنیایی مطمئن‌تر برای شماست. نوبینو
