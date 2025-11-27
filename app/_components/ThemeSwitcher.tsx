@@ -4,7 +4,7 @@ import { Button } from "@heroui/react";
 import { Moon, Sun } from "lucide-react";
 import { useTheme } from "next-themes";
 import { useEffect, useState } from "react";
-import { ButtonType } from "../_types/button";
+import type { ButtonType } from "../_types/button";
 
 export function ThemeSwitcher({ size = "md", iconSize = "20px" }: ButtonType) {
   const [mounted, setMounted] = useState(false);

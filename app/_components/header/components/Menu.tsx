@@ -22,7 +22,7 @@ export default function Menu({ trigger, items }: Menu) {
           {trigger}
         </Button>
       </DropdownTrigger>
-      <DropdownMenu variant="faded">
+      <DropdownMenu variant="flat">
         {items?.map((item) => (
           <DropdownItem key={item}>{item}</DropdownItem>
         ))}

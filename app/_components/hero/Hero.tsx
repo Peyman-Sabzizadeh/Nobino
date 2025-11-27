@@ -31,7 +31,7 @@ export default function Hero() {
             کنید.
           </p>
         </div>
-        <Button as={Link} href="/" color="primary" size="lg">
+        <Button as={Link} href="/appointment" color="primary" size="lg">
           <CalendarCheck size="20px" />
           رزرو نوبت
         </Button>

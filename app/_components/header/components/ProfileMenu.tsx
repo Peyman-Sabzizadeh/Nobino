@@ -8,7 +8,7 @@ import {
   DropdownTrigger,
 } from "@heroui/react";
 
-import { ButtonType } from "@/app/_types/button";
+import type { ButtonType } from "@/app/_types/button";
 import { User } from "lucide-react";
 
 export default function ProfileMenu({
@@ -22,7 +22,7 @@ export default function ProfileMenu({
           <User size={iconSize} />
         </Button>
       </DropdownTrigger>
-      <DropdownMenu variant="faded">
+      <DropdownMenu variant="flat">
         <DropdownItem key="پروفایل من">پروفایل من</DropdownItem>
         <DropdownItem key="وضعیت رزرو ها">وضعیت رزرو ها</DropdownItem>
       </DropdownMenu>

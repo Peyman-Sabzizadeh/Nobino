@@ -4,7 +4,7 @@ import { useState } from "react";
 import { Input, Button } from "@heroui/react";
 import { LucideSearch } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
-import { ButtonType } from "@/app/_types/button";
+import type { ButtonType } from "@/app/_types/button";
 
 export default function Search({ size = "md", iconSize = "20px" }: ButtonType) {
   const [open, setOpen] = useState(false);
