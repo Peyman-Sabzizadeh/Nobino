@@ -18,3 +18,27 @@ body,
 .container {
   @apply mx-auto max-w-7xl px-2;
 }
+
+/* ===== GLOBAL SCROLLBAR STYLE ===== */
+:root {
+  --scroll-thumb: #1f8fa3;
+  --scroll-thumb-hover: #417aa0;
+}
+* {
+  scrollbar-width: thin;
+  scrollbar-color: var(--scroll-thumb) transparent;
+}
+*::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+*::-webkit-scrollbar-track {
+  background: transparent;
+}
+*::-webkit-scrollbar-thumb {
+  background: var(--scroll-thumb);
+  border-radius: 10px;
+}
+*::-webkit-scrollbar-thumb:hover {
+  background: var(--scroll-thumb-hover);
+}
