@@ -15,7 +15,7 @@ import { ChevronDown } from "lucide-react";
 
 export default function Filter({ title, items }: FilterType) {
   const [selectedKeys, setSelectedKeys] = useState<Selection>(
-    new Set(["ایران"]),
+    new Set(["همه"]),
   );
 
   const selectedValue = useMemo(
@@ -26,7 +26,7 @@ export default function Filter({ title, items }: FilterType) {
   return (
     <div className="flex items-center justify-between">
       <h4>{title} :</h4>
-      <Dropdown className="min-w-40 max-h-60">
+      <Dropdown className="max-h-60 min-w-40">
         <DropdownTrigger>
           <Button variant="shadow" className="flex gap-x-1">
             {selectedValue}
@@ -34,7 +34,7 @@ export default function Filter({ title, items }: FilterType) {
           </Button>
         </DropdownTrigger>
         <DropdownMenu
-        className="overflow-y-auto"
+          className="overflow-y-auto"
           disallowEmptySelection
           aria-label="Single selection example"
           selectedKeys={selectedKeys}

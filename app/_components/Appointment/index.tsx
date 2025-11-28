@@ -1,13 +1,21 @@
-import { getProvinces } from "@/app/_lib/actions/filter";
+import { getFilterItems } from "@/app/_lib/actions/filter";
 import Filter from "./components/Filter";
 
 export default async function Appointment() {
-  const Provinces = await getProvinces();
+  const {
+    uniqueProvinces,
+    uniqueCities,
+    uniqueSpecialty,
+    uniqueExperience_years,
+  } = await getFilterItems();
 
   return (
     <div className="mt-2 grid grid-cols-[1fr_4fr] gap-3 max-md:grid-cols-1">
       <div className="rounded-lg bg-gray-200 p-4 dark:bg-gray-600">
-        <Filter title="استان" items={Provinces} />
+        <Filter title="استان" items={uniqueProvinces} />
+        <Filter title="شهر" items={uniqueCities} />
+        <Filter title="تخصص" items={uniqueSpecialty} />
+        <Filter title="سابقه(سال)" items={uniqueExperience_years} />
       </div>
       <div>Doctors</div>
     </div>
