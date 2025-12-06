@@ -7,18 +7,15 @@ import {
   DropdownItem,
   Button,
 } from "@heroui/react";
-
-import { useFilterStore } from "@/app/_store/filterStore";
-import { useState, useMemo } from "react";
-import { ChevronDown } from "lucide-react";
-
 import type { FilterType } from "@/app/_types/filter";
-import type { Selection } from "@heroui/react";
+
+import { useMemo } from "react";
+import { ChevronDown } from "lucide-react";
+import { useFilterStore } from "@/app/_store/filterStore";
 
 export default function Filter({ title, items, storeKey }: FilterType) {
-  const [selectedKeys, setSelectedKeys] = useState<Selection>(new Set(["همه"]));
-
-  const setFilter = useFilterStore((state) => {
+  const selectedKeys = useFilterStore((s) => s[storeKey]);
+  const setSelectedKeys = useFilterStore((state) => {
     if (storeKey === "province") return state.setProvince;
     if (storeKey === "city") return state.setCity;
     if (storeKey === "specialty") return state.setSpecialty;
@@ -29,14 +26,6 @@ export default function Filter({ title, items, storeKey }: FilterType) {
     () => Array.from(selectedKeys).join(", ").replace(/_/g, ""),
     [selectedKeys],
   );
-
-  const handleSelection = (keys: Selection) => {
-    setSelectedKeys(keys);
-    const value = Array.from(keys)[0] as string;
-    if (setFilter) {
-      setFilter(new Set([value]));
-    }
-  };
 
   return (
     <div className="flex items-center justify-between">
@@ -52,9 +41,11 @@ export default function Filter({ title, items, storeKey }: FilterType) {
         <DropdownMenu
           className="overflow-y-auto"
           disallowEmptySelection
+          aria-label="Single selection example"
           selectionMode="single"
           selectedKeys={selectedKeys}
-          onSelectionChange={handleSelection}
+          onSelectionChange={setSelectedKeys}
+          variant="flat"
         >
           {items.map((item) => (
             <DropdownItem key={item}>{item}</DropdownItem>

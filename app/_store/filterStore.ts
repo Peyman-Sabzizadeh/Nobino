@@ -13,6 +13,7 @@ type Actions = {
   setCity: (v: Selection) => void;
   setSpecialty: (v: Selection) => void;
   setExperience: (v: Selection) => void;
+  resetFilters: () => void;
 };
 
 export const useFilterStore = create<FilterStoreState & Actions>((set) => ({
@@ -27,4 +28,12 @@ export const useFilterStore = create<FilterStoreState & Actions>((set) => ({
 
   experience: new Set(["همه"]),
   setExperience: (v) => set({ experience: v }),
+
+  resetFilters: () =>
+    set({
+      province: new Set(["همه"]),
+      city: new Set(["همه"]),
+      specialty: new Set(["همه"]),
+      experience: new Set(["همه"]),
+    }),
 }));
