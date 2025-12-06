@@ -23,10 +23,14 @@ export default async function Appointment() {
           <ResetFilters />
         </div>
         <Divider />
-        <Filter title="استان" items={uniqueProvinces} />
-        <Filter title="شهر" items={uniqueCities} />
-        <Filter title="تخصص" items={uniqueSpecialty} />
-        <Filter title="سابقه(سال)" items={uniqueExperience_years} />
+        <Filter title="استان" items={uniqueProvinces} storeKey="province" />
+        <Filter title="شهر" items={uniqueCities} storeKey="city" />
+        <Filter title="تخصص" items={uniqueSpecialty} storeKey="specialty" />
+        <Filter
+          title="سابقه(سال)"
+          items={uniqueExperience_years}
+          storeKey="experience"
+        />
       </div>
       <div>Doctors</div>
     </div>
