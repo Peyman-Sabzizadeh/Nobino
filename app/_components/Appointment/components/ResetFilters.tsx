@@ -5,7 +5,21 @@ import { Button, Tooltip } from "@heroui/react";
 import { X } from "lucide-react";
 
 export default function ResetFilters() {
-  const resetFilters = useFilterStore((state) => state.resetFilters);
+  const { province, city, specialty, experience, resetFilters } =
+    useFilterStore();
+
+  const isAllDefault =
+    province instanceof Set &&
+    city instanceof Set &&
+    specialty instanceof Set &&
+    experience instanceof Set &&
+    province.has("همه") &&
+    city.has("همه") &&
+    specialty.has("همه") &&
+    experience.has("همه");
+
+  if (isAllDefault) return null;
+
   return (
     <Tooltip content="حذف فیلترها">
       <Button

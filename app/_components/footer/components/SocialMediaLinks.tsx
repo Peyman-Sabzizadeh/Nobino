@@ -1,3 +1,5 @@
+"use client"
+
 import { socialLinks } from "@/app/_data/socialLinks";
 import { Tooltip } from "@heroui/react";
 import Link from "next/link";
