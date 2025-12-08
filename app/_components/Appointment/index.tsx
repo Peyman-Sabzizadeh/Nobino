@@ -1,37 +1,9 @@
-import { getFilterItems } from "@/app/_lib/actions/filter";
-import Filter from "./components/Filter";
-import { Divider } from "@heroui/react";
-import { FilterIcon } from "lucide-react";
-import ResetFilters from "./components/ResetFilters";
+import FilterSection from "./components/FilterSection";
 
 export default async function Appointment() {
-  const {
-    uniqueProvinces,
-    uniqueCities,
-    uniqueSpecialty,
-    uniqueExperience_years,
-  } = await getFilterItems();
-
   return (
     <div className="mt-2 grid grid-cols-[1fr_4fr] gap-3 max-md:grid-cols-1">
-      <div className="space-y-2 rounded-lg bg-gray-200 p-4 dark:bg-gray-600">
-        <div className="flex items-center justify-between">
-          <h3 className="flex items-center justify-center gap-1 text-center">
-            <FilterIcon size="18px" />
-            فیلتر
-          </h3>
-          <ResetFilters />
-        </div>
-        <Divider />
-        <Filter title="استان" items={uniqueProvinces} storeKey="province" />
-        <Filter title="شهر" items={uniqueCities} storeKey="city" />
-        <Filter title="تخصص" items={uniqueSpecialty} storeKey="specialty" />
-        <Filter
-          title="سابقه(سال)"
-          items={uniqueExperience_years}
-          storeKey="experience"
-        />
-      </div>
+      <FilterSection />
       <div>Doctors</div>
     </div>
   );

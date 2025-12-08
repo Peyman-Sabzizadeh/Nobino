@@ -13,7 +13,7 @@ import { useMemo } from "react";
 import { ChevronDown } from "lucide-react";
 import { useFilterStore } from "@/app/_store/filterStore";
 
-export default function Filter({ title, items, storeKey }: FilterType) {
+export default function FilterItem({ title, items, storeKey }: FilterType) {
   const selectedKeys = useFilterStore((s) => s[storeKey]);
   const setSelectedKeys = useFilterStore((state) => {
     if (storeKey === "province") return state.setProvince;
