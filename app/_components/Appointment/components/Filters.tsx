@@ -1,13 +1,17 @@
+import type { FilterDataType } from "@/app/_types/filter";
 import FilterItem from "./FilterItem";
-import { getFilterItems } from "@/app/_lib/actions/filter";
 
-export default async function Filters() {
+export default function Filters({
+  filterData,
+}: {
+  filterData: FilterDataType;
+}) {
   const {
     uniqueProvinces,
     uniqueCities,
     uniqueSpecialty,
     uniqueExperience_years,
-  } = await getFilterItems();
+  } = filterData;
   return (
     <>
       <FilterItem title="استان" items={uniqueProvinces} storeKey="province" />
