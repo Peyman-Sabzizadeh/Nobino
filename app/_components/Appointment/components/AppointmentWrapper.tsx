@@ -11,11 +11,13 @@ export default function AppointmentWrapper({
   filterData: FilterDataType;
 }) {
   const isMobile = useIsMobile();
-  return isMobile ? (
-    <MobileFilter />
-  ) : (
+  return (
     <div className="mt-2 grid grid-cols-[1fr_4fr] gap-3 max-md:grid-cols-1">
-      <FilterSection filterData={filterData} />
+      {isMobile ? (
+        <MobileFilter filterData={filterData} />
+      ) : (
+        <FilterSection filterData={filterData} />
+      )}
       <div>Doctors</div>
     </div>
   );

@@ -12,8 +12,10 @@ import type { FilterType } from "@/app/_types/filter";
 import { useMemo } from "react";
 import { ChevronDown } from "lucide-react";
 import { useFilterStore } from "@/app/_store/filterStore";
+import useIsMobile from "@/app/_hooks/useIsMobile";
 
 export default function FilterItem({ title, items, storeKey }: FilterType) {
+  const isMobile = useIsMobile();
   const selectedKeys = useFilterStore((s) => s[storeKey]);
   const setSelectedKeys = useFilterStore((state) => {
     if (storeKey === "province") return state.setProvince;
@@ -32,7 +34,11 @@ export default function FilterItem({ title, items, storeKey }: FilterType) {
       <h4>{title} :</h4>
       <Dropdown className="max-h-60 min-w-40">
         <DropdownTrigger>
-          <Button variant="shadow" className="flex gap-x-1">
+          <Button
+            variant={isMobile ? "flat" : "shadow"}
+            className="flex gap-x-1"
+            aria-label={`Select ${title}`}
+          >
             {selectedValue}
             <ChevronDown size="18px" />
           </Button>
@@ -48,7 +54,9 @@ export default function FilterItem({ title, items, storeKey }: FilterType) {
           variant="flat"
         >
           {items.map((item) => (
-            <DropdownItem key={item}>{item}</DropdownItem>
+            <DropdownItem textValue={title} key={item}>
+              {item}
+            </DropdownItem>
           ))}
         </DropdownMenu>
       </Dropdown>

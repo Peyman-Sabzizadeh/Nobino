@@ -1,10 +1,11 @@
 "use client";
 
 import { useFilterStore } from "@/app/_store/filterStore";
+import type { ResetFilterType } from "@/app/_types/filter";
 import { Button, Tooltip } from "@heroui/react";
 import { X } from "lucide-react";
 
-export default function ResetFilters() {
+export default function ResetFilters({ title }: ResetFilterType) {
   const { province, city, specialty, experience, resetFilters } =
     useFilterStore();
 
@@ -23,14 +24,14 @@ export default function ResetFilters() {
   return (
     <Tooltip content="حذف فیلترها">
       <Button
-        isIconOnly
-        variant="flat"
+        isIconOnly={title ? false : true}
+        variant={title ? "ghost" : "flat"}
         size="sm"
         color="danger"
         aria-label="حذف فیلترها"
         onPress={resetFilters}
       >
-        <X size="20px" />
+        {title || <X size="20px" />}
       </Button>
     </Tooltip>
   );

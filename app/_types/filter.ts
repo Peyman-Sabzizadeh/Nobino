@@ -10,3 +10,8 @@ export type FilterDataType = {
   uniqueSpecialty: string[];
   uniqueExperience_years: number[];
 };
+
+export type ResetFilterType = {
+  title?: string;
+  onPress?: () => void;
+};
