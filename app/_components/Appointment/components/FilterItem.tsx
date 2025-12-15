@@ -14,7 +14,12 @@ import { ChevronDown } from "lucide-react";
 import { useFilterStore } from "@/app/_store/filterStore";
 import useIsMobile from "@/app/_hooks/useIsMobile";
 
-export default function FilterItem({ title, items, storeKey }: FilterType) {
+export default function FilterItem({
+  title,
+  items,
+  storeKey,
+  hasProvince,
+}: FilterType) {
   const isMobile = useIsMobile();
   const selectedKeys = useFilterStore((s) => s[storeKey]);
   const setSelectedKeys = useFilterStore((state) => {
@@ -38,6 +43,7 @@ export default function FilterItem({ title, items, storeKey }: FilterType) {
             variant={isMobile ? "flat" : "shadow"}
             className="flex gap-x-1"
             aria-label={`Select ${title}`}
+            isDisabled={hasProvince}
           >
             {selectedValue}
             <ChevronDown size="18px" />
@@ -53,7 +59,7 @@ export default function FilterItem({ title, items, storeKey }: FilterType) {
           onSelectionChange={setSelectedKeys}
           variant="flat"
         >
-          {items.map((item) => (
+          {items?.map((item) => (
             <DropdownItem textValue={title} key={item}>
               {item}
             </DropdownItem>
