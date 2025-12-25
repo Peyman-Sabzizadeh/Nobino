@@ -3,7 +3,7 @@ import Filters from "./Filters";
 import FilterHeader from "./FilterHeader";
 import type { FilterDataType } from "@/app/_types/filter";
 
-export default function FilterSection({
+export default function DesktopFilter({
   filterData,
 }: {
   filterData: FilterDataType;
