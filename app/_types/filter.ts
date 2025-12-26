@@ -16,3 +16,7 @@ export type ResetFilterType = {
   title?: string;
   onPress?: () => void;
 };
+
+export type searchParamsType = {
+  searchParams: Promise<{ [key: string]: string | string[] | undefined }>;
+};
