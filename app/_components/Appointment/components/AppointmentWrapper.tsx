@@ -5,6 +5,8 @@ import DesktopFilter from "./DesktopFilter";
 import useIsMobile from "@/app/_hooks/useIsMobile";
 import type { FilterDataType } from "@/app/_types/filter";
 import { useSearchParams } from "next/navigation";
+import { useFilterStore } from "@/app/_store/filterStore";
+import { useEffect } from "react";
 
 export default function AppointmentWrapper({
   filterData,
@@ -13,7 +15,16 @@ export default function AppointmentWrapper({
 }) {
   const searchParams = useSearchParams();
   const UrlFilters = Object.fromEntries(searchParams.entries());
-  console.log(UrlFilters);
+  const setProvince = useFilterStore((state) => state.setProvince);
+  const setCity = useFilterStore((state) => state.setCity);
+  const setSpecialty = useFilterStore((state) => state.setSpecialty);
+  const setExperience = useFilterStore((state) => state.setExperience);
+  useEffect(() => {
+    setProvince(new Set([UrlFilters.province || "همه"]));
+    setCity(new Set([UrlFilters.city || "همه"]));
+    setSpecialty(new Set([UrlFilters.specialty || "همه"]));
+    setExperience(new Set([UrlFilters.experience || "همه"]));
+  });
   const isMobile = useIsMobile();
   return (
     <div className="mt-2 grid grid-cols-[1fr_4fr] gap-3 max-md:grid-cols-1">
