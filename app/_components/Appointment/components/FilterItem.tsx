@@ -13,6 +13,8 @@ import { useMemo } from "react";
 import { ChevronDown } from "lucide-react";
 import { useFilterStore } from "@/app/_store/filterStore";
 import useIsMobile from "@/app/_hooks/useIsMobile";
+import { useRouter, useSearchParams } from "next/navigation";
+import type { SharedSelection } from "@heroui/react";
 
 export default function FilterItem({
   title,
@@ -22,17 +24,28 @@ export default function FilterItem({
 }: FilterType) {
   const isMobile = useIsMobile();
   const selectedKeys = useFilterStore((s) => s[storeKey]);
-  const setSelectedKeys = useFilterStore((state) => {
-    if (storeKey === "province") return state.setProvince;
-    if (storeKey === "city") return state.setCity;
-    if (storeKey === "specialty") return state.setSpecialty;
-    if (storeKey === "experience") return state.setExperience;
-  });
+
+  // const setSelectedKeys = useFilterStore((state) => {
+  //   if (storeKey === "province") return state.setProvince;
+  //   if (storeKey === "city") return state.setCity;
+  //   if (storeKey === "specialty") return state.setSpecialty;
+  //   if (storeKey === "experience") return state.setExperience;
+  // });
 
   const selectedValue = useMemo(
     () => Array.from(selectedKeys).join(", ").replace(/_/g, ""),
     [selectedKeys],
   );
+
+  const router = useRouter();
+  const searchParams = useSearchParams();
+
+  const onSelectionChange = (keys: SharedSelection) => {
+    const value = keys.currentKey as string;
+    const params = new URLSearchParams(searchParams.toString());
+    params.set(storeKey, value);
+    router.push(`?${params.toString()}`);
+  };
 
   return (
     <div className="flex items-center justify-between">
@@ -56,7 +69,7 @@ export default function FilterItem({
           aria-label="Single selection example"
           selectionMode="single"
           selectedKeys={selectedKeys}
-          onSelectionChange={setSelectedKeys}
+          onSelectionChange={onSelectionChange}
           variant="flat"
         >
           {items?.map((item) => (
