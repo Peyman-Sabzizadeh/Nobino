@@ -25,23 +25,24 @@ export default function FilterItem({
   const isMobile = useIsMobile();
   const selectedKeys = useFilterStore((s) => s[storeKey]);
 
-  // const setSelectedKeys = useFilterStore((state) => {
-  //   if (storeKey === "province") return state.setProvince;
-  //   if (storeKey === "city") return state.setCity;
-  //   if (storeKey === "specialty") return state.setSpecialty;
-  //   if (storeKey === "experience") return state.setExperience;
-  // });
-
   const selectedValue = useMemo(
     () => Array.from(selectedKeys).join(", ").replace(/_/g, ""),
     [selectedKeys],
   );
+
+  const setSelectedKeys = useFilterStore((state) => {
+    if (storeKey === "province") return state.setProvince;
+    if (storeKey === "city") return state.setCity;
+    if (storeKey === "specialty") return state.setSpecialty;
+    if (storeKey === "experience") return state.setExperience;
+  });
 
   const router = useRouter();
   const searchParams = useSearchParams();
 
   const onSelectionChange = (keys: SharedSelection) => {
     const value = keys.currentKey as string;
+    if (setSelectedKeys) setSelectedKeys(new Set([value]));
     const params = new URLSearchParams(searchParams.toString());
     params.set(storeKey, value);
     router.push(`?${params.toString()}`);
