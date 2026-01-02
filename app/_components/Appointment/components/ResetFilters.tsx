@@ -4,10 +4,19 @@ import { useFilterStore } from "@/app/_store/filterStore";
 import type { ResetFilterType } from "@/app/_types/filter";
 import { Button, Tooltip } from "@heroui/react";
 import { X } from "lucide-react";
+import { usePathname, useRouter } from "next/navigation";
 
 export default function ResetFilters({ title }: ResetFilterType) {
   const { province, city, specialty, experience, resetFilters } =
     useFilterStore();
+
+  const router = useRouter();
+  const pathname = usePathname();
+
+  function onPressHandler() {
+    resetFilters();
+    router.replace(pathname);
+  }
 
   const isAllDefault =
     province instanceof Set &&
@@ -29,7 +38,7 @@ export default function ResetFilters({ title }: ResetFilterType) {
         size="sm"
         color="danger"
         aria-label="حذف فیلترها"
-        onPress={resetFilters}
+        onPress={onPressHandler}
       >
         {title || <X size="20px" />}
       </Button>
