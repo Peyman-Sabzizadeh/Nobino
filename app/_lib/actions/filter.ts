@@ -37,3 +37,12 @@ export async function getCitysByProvince(province: string) {
   const uniqueCities = [...new Set(Cities)].sort();
   return uniqueCities;
 }
+// The below function is just for test
+export async function getDataBySelectedFilters() {
+  const { data: selectedData, error } = await supabase
+    .from("Doctors")
+    .select("*")
+    .eq("province", "اصفهان");
+  if (error) throw new Error("Error was found");
+  return selectedData;
+}
