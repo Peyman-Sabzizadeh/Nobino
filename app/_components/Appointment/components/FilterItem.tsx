@@ -20,7 +20,6 @@ export default function FilterItem({
   title,
   items,
   storeKey,
-  hasProvince,
 }: FilterType) {
   const isMobile = useIsMobile();
   const selectedKeys = useFilterStore((s) => s[storeKey]);
@@ -57,7 +56,6 @@ export default function FilterItem({
             variant={isMobile ? "flat" : "shadow"}
             className="flex gap-x-1"
             aria-label={`Select ${title}`}
-            isDisabled={hasProvince}
           >
             {selectedValue}
             <ChevronDown size="18px" />
