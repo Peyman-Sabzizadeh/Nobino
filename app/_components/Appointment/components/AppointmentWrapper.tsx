@@ -7,6 +7,7 @@ import type { FilterDataType } from "@/app/_types/filter";
 import { useSearchParams } from "next/navigation";
 import { useFilterStore } from "@/app/_store/filterStore";
 import { useEffect } from "react";
+import DoctorsList from "./DoctorsList";
 
 export default function AppointmentWrapper({
   filterData,
@@ -33,7 +34,7 @@ export default function AppointmentWrapper({
       ) : (
         <DesktopFilter filterData={filterData} />
       )}
-      <div>Doctors</div>
+      <DoctorsList />
     </div>
   );
 }
