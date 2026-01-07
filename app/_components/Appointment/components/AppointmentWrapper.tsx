@@ -1,13 +1,13 @@
 "use client";
 
-import MobileFilter from "./MobileFilter";
-import DesktopFilter from "./DesktopFilter";
-import useIsMobile from "@/app/_hooks/useIsMobile";
 import type { FilterDataType } from "@/app/_types/filter";
 import { useSearchParams } from "next/navigation";
 import { useFilterStore } from "@/app/_store/filterStore";
 import { useEffect } from "react";
-import DoctorsList from "./DoctorsList";
+import MobileFilter from "./filters/MobileFilter";
+import DesktopFilter from "./filters/DesktopFilter";
+import useIsMobile from "@/app/_hooks/useIsMobile";
+import DoctorsList from "./doctors/DoctorsList";
 
 export default function AppointmentWrapper({
   filterData,
