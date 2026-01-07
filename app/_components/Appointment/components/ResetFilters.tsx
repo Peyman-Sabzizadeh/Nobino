@@ -4,11 +4,10 @@ import { useFilterStore } from "@/app/_store/filterStore";
 import type { ResetFilterType } from "@/app/_types/filter";
 import { Button, Tooltip } from "@heroui/react";
 import { X } from "lucide-react";
-import { usePathname, useRouter } from "next/navigation";
+import { usePathname, useRouter, useSearchParams } from "next/navigation";
 
 export default function ResetFilters({ title }: ResetFilterType) {
-  const { province, city, specialty, experience, resetFilters } =
-    useFilterStore();
+  const { resetFilters } = useFilterStore();
 
   const router = useRouter();
   const pathname = usePathname();
@@ -17,18 +16,9 @@ export default function ResetFilters({ title }: ResetFilterType) {
     resetFilters();
     router.replace(pathname);
   }
-
-  const isAllDefault =
-    province instanceof Set &&
-    city instanceof Set &&
-    specialty instanceof Set &&
-    experience instanceof Set &&
-    province.has("همه") &&
-    city.has("همه") &&
-    specialty.has("همه") &&
-    experience.has("همه");
-
-  if (isAllDefault) return null;
+  
+  const searchParams = useSearchParams();
+  if (searchParams.size === 0) return null;
 
   return (
     <Tooltip content="حذف فیلترها">

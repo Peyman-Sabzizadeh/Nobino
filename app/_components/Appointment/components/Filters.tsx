@@ -10,7 +10,7 @@ export default function Filters({
     uniqueProvinces,
     uniqueCities,
     uniqueSpecialty,
-    uniqueExperience_years,
+    uniqueExperience,
   } = filterData;
 
   return (
@@ -20,7 +20,7 @@ export default function Filters({
       <FilterItem title="تخصص" items={uniqueSpecialty} storeKey="specialty" />
       <FilterItem
         title="سابقه(سال)"
-        items={uniqueExperience_years}
+        items={uniqueExperience}
         storeKey="experience"
       />
     </>

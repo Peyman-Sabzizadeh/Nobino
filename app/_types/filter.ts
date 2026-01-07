@@ -8,7 +8,7 @@ export type FilterDataType = {
   uniqueProvinces: string[];
   uniqueCities: string[];
   uniqueSpecialty: string[];
-  uniqueExperience_years: number[];
+  uniqueExperience: number[];
 };
 
 export type ResetFilterType = {
